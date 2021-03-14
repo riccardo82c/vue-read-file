@@ -1,12 +1,10 @@
 <template>
 	<div id="app">
-		<img
-			alt="Vue logo"
-			src="./assets/logo.png"
-		>
+
 		<HelloWorld msg="Welcome to Your Vue.js App" />
+		<hr>
 		<read-file v-model="value"></read-file>
-		<button @click="read">read</button>
+		<button @click="read">read app</button>
 	</div>
 </template>
 
@@ -73,6 +71,6 @@
 	}
 
 	/* .form-group.file {
-			color: black !important;
-		} */
+						color: black !important;
+					} */
 </style>

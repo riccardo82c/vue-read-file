@@ -46,12 +46,12 @@
 			read: function () {
 				// console.log('ciao');
 				// console.log(this.value);
+				console.log('read');
 
 				this.csvJSON(this.value);
 			},
 
 			csvJSON: function (file) {
-				console.log(file);
 				var lines = file.split('\n');
 
 				var result = [];
@@ -60,11 +60,11 @@
 				// to deal with those before doing the next step
 				// (you might convert them to &&& or something, then covert them back later)
 				// jsfiddle showing the issue https://jsfiddle.net/
-				var headers = lines[0].split(',');
+				var headers = lines[0].split(';');
 
 				for (var i = 1; i < lines.length; i++) {
 					var obj = {};
-					var currentline = lines[i].split(',');
+					var currentline = lines[i].split(';');
 
 					for (var j = 0; j < headers.length; j++) {
 						obj[headers[j]] = currentline[j];
@@ -73,6 +73,15 @@
 					result.push(obj);
 				}
 
+				result.forEach((element) => {
+					console.log(element['Indirizzo']);
+					console.log(element['PV']);
+					console.log(element['CAP']);
+				});
+
+				console.log(result);
+
+				// console.log(result);
 				//return result; //JavaScript object
 				return JSON.stringify(result); //JSON
 			},
